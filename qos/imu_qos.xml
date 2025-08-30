@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dds xmlns="http://www.omg.org/dds-xml">
+  <!-- Perfil por defecto para el publisher de IMU -->
+  <qos_profile name="imu_profile" is_default_qos="true">
+
+    <!-- QoS del DataWriter -->
+    <datawriter_qos>
+      <reliability>
+        <kind>RELIABLE_RELIABILITY_QOS</kind>
+      </reliability>
+
+      <history>
+        <kind>KEEP_LAST_HISTORY_QOS</kind>
+        <depth>10</depth>
+      </history>
+
+      <deadline>
+        <period>
+          <sec>0</sec>
+          <nanosec>5000000</nanosec> <!-- 5 ms -->
+        </period>
+      </deadline>
+
+      <latency_budget>
+        <duration>
+          <sec>0</sec>
+          <nanosec>1000000</nanosec> <!-- 1 ms -->
+        </duration>
+      </latency_budget>
+
+      <liveliness>
+        <kind>AUTOMATIC_LIVELINESS_QOS</kind>
+        <lease_duration>
+          <sec>1</sec>
+          <nanosec>0</nanosec>
+        </lease_duration>
+      </liveliness>
+
+      <resource_limits>
+        <max_samples>100</max_samples>
+        <max_instances>32</max_instances>
+        <max_samples_per_instance>100</max_samples_per_instance>
+      </resource_limits>
+
+      <transport_priority>
+        <value>10</value>
+      </transport_priority>
+    </datawriter_qos>
+
+    <!-- (Opcional) QoS del DataReader de referencia -->
+    <datareader_qos>
+      <reliability>
+        <kind>RELIABLE_RELIABILITY_QOS</kind>
+      </reliability>
+      <history>
+        <kind>KEEP_LAST_HISTORY_QOS</kind>
+        <depth>10</depth>
+      </history>
+      <deadline>
+        <period>
+          <sec>0</sec>
+          <nanosec>5000000</nanosec>
+        </period>
+      </deadline>
+      <latency_budget>
+        <duration>
+          <sec>0</sec>
+          <nanosec>1000000</nanosec>
+        </duration>
+      </latency_budget>
+      <liveliness>
+        <kind>AUTOMATIC_LIVELINESS_QOS</kind>
+        <lease_duration>
+          <sec>1</sec>
+          <nanosec>0</nanosec>
+        </lease_duration>
+      </liveliness>
+    </datareader_qos>
+
+  </qos_profile>
+
+  <!-- Perfil alterno para redes/contenedores restringidos -->
+  <qos_profile name="imu_constrained">
+    <datawriter_qos>
+      <reliability>
+        <kind>BEST_EFFORT_RELIABILITY_QOS</kind>
+      </reliability>
+      <history>
+        <kind>KEEP_LAST_HISTORY_QOS</kind>
+        <depth>5</depth>
+      </history>
+      <latency_budget>
+        <duration>
+          <sec>0</sec>
+          <nanosec>1000000</nanosec>
+        </duration>
+      </latency_budget>
+      <resource_limits>
+        <max_samples>50</max_samples>
+        <max_instances>16</max_instances>
+        <max_samples_per_instance>50</max_samples_per_instance>
+      </resource_limits>
+      <transport_priority>
+        <value>5</value>
+      </transport_priority>
+    </datawriter_qos>
+  </qos_profile>
+</dds>

@@ -1,0 +1,54 @@
+/*
+ * imu_data.idl
+ *
+ * IDL schema defining the inertial measurement unit (IMU) data topic
+ * for real-time publishing with DDS.
+ *
+ * Standard: OMG IDL 4.2
+ * Mapping:  ISO/IEC DDS PSM for C++
+ *
+ * This schema was designed for the VN-100 IMU but can be extended to
+ * other sensors by maintaining the same structure and units.
+ */
+
+module imu {
+
+/*
+ * Struct representing one sample of IMU data.
+ * Units:
+ *  - Orientation: degrees
+ *  - Angular rates: deg/s
+ *  - Accelerations: m/s^2
+ */
+
+ 
+struct ImuData {
+
+    // Unique identifier for multi-sensor deployments
+    @key uint32 sensor_id;
+
+    // Timestamp (UNIX epoch, microseconds)
+    uint64 timestamp;
+
+    // Orientation (yaw, pitch, roll) in degrees
+    float yaw;
+    float pitch;
+    float roll;
+
+    // Angular velocities in deg/s
+    float gyro_x;
+    float gyro_y;
+    float gyro_z;
+
+    // Linear accelerations in m/s^2
+    float accel_x;
+    float accel_y;
+    float accel_z;
+
+    // Magnetic field values (optional, in µT)
+    float mag_x;
+    float mag_y;
+    float mag_z;
+};
+
+}; // module imu

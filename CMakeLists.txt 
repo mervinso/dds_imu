@@ -1,0 +1,12 @@
+# CMakeLists.txt (extracto)
+find_package(CycloneDDS REQUIRED COMPONENTS CXX)
+add_executable(dds_imu_publisher
+  src/main.cpp
+  src/imu_parser.cpp
+  src/dds_publisher.cpp
+  # + los .cpp generados por idlc si aplica
+)
+target_include_directories(dds_imu_publisher PRIVATE
+  ${CMAKE_SOURCE_DIR}/idl-gen   # donde cae imu_data.hpp
+)
+target_link_libraries(dds_imu_publisher PRIVATE CycloneDDS-CXX::ddscxx)
