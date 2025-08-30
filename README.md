@@ -74,11 +74,66 @@ dds-imu-dds-interface/
 ## 🛠️ Build Instructions
 ```bash
 # Clone repo
-git clone https://github.com/<usuario>/dds-imu-dds-interface.git
-cd dds-imu-dds-interface
+git https://github.com/mervinso/dds_imu.git
+cd dds-imu
 
 # Create build directory
 mkdir build && cd build
 cmake ..
 make
+```
 
+---
+
+## ▶️ Run Example
+```bash
+# Publisher
+./dds_imu_publisher datasets/imu_sample_log.csv
+
+# Subscriber
+./dds_imu_subscriber
+
+# Monitor with DDS Spy
+ddsspy -t imu/ImuData
+```
+
+---
+
+## 📊 QoS Profiles
+Default QoS for the publisher is defined in  `qos/imu_qos.xml `:
+- Reliable delivery
+- KeepLast = 10
+- Deadline = 5 ms
+- LatencyBudget = 1 ms
+- Liveliness = Automatic (1 s)
+
+To use this profile:
+```bash
+export DDS_QOS_PROFILES=file://$PWD/qos/imu_qos.xml
+```
+
+---
+## 📜 Citation
+
+If you use this repository, please cite:
+```bibtex
+@inproceedings{Sosa2025-DDS-IMU,
+  author    = {Mervin Jesus Sosa Borrero and Jairo Enrique Serrano Castañeda and Juan Carlos Martinez Santos and Edwin Alexander Puertas Del Castillo},
+  title     = {Implementation of a DDS-Based Publishing Interface for Real-Time Inertial Sensor Data in Navigation Systems},
+  booktitle = {Proc. IEEE Caribbean Colombian Conference (C3)},
+  year      = {2025},
+  publisher = {IEEE},
+  doi       = {10.1109/C3.2025.XXXXXXX}
+}
+```
+
+---
+## 📖 License
+This project is licensed under the ![MIT License.](https://github.com/mervinso/dds_imu/blob/main/LICENSE)
+
+---
+
+## 🔗 Related References
+- OMG DDS Specification: [Official Website](https://www.omg.org/spec/DDS)
+- OMG IDL4 to C++ Mapping: [Official Website](https://www.omg.org/spec/IDL4-CPPS)
+- Eclipse Cyclone DDS: [Official Repository](https://github.com/eclipse-cyclonedds/cyclonedds)
