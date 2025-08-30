@@ -19,8 +19,8 @@ It enables raw IMU serial data streams to be published as **IDL-defined DDS Topi
 ## 🏗️ Architecture Diagram
 
 ```mermaid 
-graph LR
-    A[VN-100 IMU (Serial UART/USB)] --> B[Parser Layer (C++)]
+flowchart LR
+    A[VN-100 IMU Serial UART/USB] --> B[Parser Layer C++]
     B --> C[IDL Mapping (imu_data.idl)]
     C --> D[DDS Publisher (CycloneDDS)]
     D --> E[DDS Domain]
