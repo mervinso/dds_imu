@@ -4,8 +4,7 @@
 [![Build](https://img.shields.io/badge/build-CMake%20%2B%20GCC-blue)]()
 [![DDS](https://img.shields.io/badge/middleware-CycloneDDS-orange)]()
 
-Implementation of a **native DDS-based publishing interface** for inertial sensor data, validated with a VectorNav VN-100 IMU.  
-This repository accompanies the paper:
+Implementation of a **native DDS-based publishing interface** for inertial sensor data, validated with a VectorNav VN-100 IMU. This repository accompanies the paper:
 
 > **M. J. Sosa Borrero, J. E. Serrano Castañeda, J. C. Martinez Santos, E. A. Puertas Del Castillo**.  
 > *Implementation of a DDS-Based Publishing Interface for Real-Time Inertial Sensor Data in Navigation Systems*.  
@@ -129,7 +128,7 @@ If you use this repository, please cite:
 
 ---
 ## 📖 License
-This project is licensed under the ![MIT License.](https://github.com/mervinso/dds_imu/blob/main/LICENSE)
+This project is licensed under the MIT License. See LICENSE for details.
 
 ---
 
