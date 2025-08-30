@@ -59,3 +59,26 @@ dds-imu-dds-interface/
 ├── imu_sample_log.csv
 └── dds_output_log.csv
 ```
+
+---
+
+## ⚙️ Requirements
+- Ubuntu 22.04 (tested)
+- GCC / G++ ≥ 11
+- CMake ≥ 3.16
+- [Cyclone DDS](https://github.com/eclipse-cyclonedds/cyclonedds)
+- Git
+
+---
+
+## 🛠️ Build Instructions
+```bash
+# Clone repo
+git clone https://github.com/<usuario>/dds-imu-dds-interface.git
+cd dds-imu-dds-interface
+
+# Create build directory
+mkdir build && cd build
+cmake ..
+make
+
