@@ -25,7 +25,7 @@ This repository accompanies the paper:
 
 ## 📂 Repository Structure
 
-´´´
+´´´bash
 dds-imu-dds-interface/
 │── CMakeLists.txt
 │── README.md
