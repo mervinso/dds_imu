@@ -25,7 +25,7 @@ This repository accompanies the paper:
 
 ## 📂 Repository Structure
 
-´´´bash
+```bash
 dds-imu-dds-interface/
 │── CMakeLists.txt
 │── README.md
@@ -58,4 +58,4 @@ dds-imu-dds-interface/
 └── datasets/ # Example logs from lab validation
 ├── imu_sample_log.csv
 └── dds_output_log.csv
-´´´
+```
